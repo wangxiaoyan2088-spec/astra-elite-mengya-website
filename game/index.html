@@ -34,8 +34,8 @@
         </div>
         <div class="game-visual opening-visual">
           <img src="../assets/scenery/mooncity_signal.jpg" alt="Moon City drone signal scene">
-          <img class="scene-leta intro-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo intro-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta intro-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo intro-milo" src="../assets/characters/milo.png" alt="Milo">
           <div class="game-dialogue">Milo: A lost drone signal is calling us.</div>
         </div>
       </section>
@@ -52,8 +52,8 @@
 
         <section class="mission-scene active" data-step="story" style="--scene-image: url('../assets/scenery/mooncity_signal.jpg')">
           <div class="scene-layer"></div>
-          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo" src="../assets/characters/milo.png" alt="Milo">
           <div class="signal-source" aria-hidden="true"></div>
           <div class="mission-object drone-console">Drone Console</div>
           <article class="mission-ui story-ui">
@@ -68,15 +68,16 @@
 
         <section class="mission-scene" data-step="vocab" style="--scene-image: url('../assets/scenery/moonbase_lab.png')">
           <div class="scene-layer"></div>
-          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo" src="../assets/characters/milo.png" alt="Milo">
           <article class="mission-ui vocab-ui">
             <p class="game-kicker">Vocabulary Matching Game</p>
             <h2>Match the mission words.</h2>
             <p class="milo-hint" data-vocab-feedback>Try matching the signal with the wave image.</p>
             <div class="mission-progress"><span data-vocab-progress>0/6</span></div>
-            <div class="matching-board">
-              <div class="word-column" aria-label="Word cards">
+            <div class="matching-board" data-matching-board>
+              <svg class="match-lines" data-match-lines aria-hidden="true"></svg>
+              <div class="word-row" aria-label="Word cards">
                 <button type="button" data-word="drone">drone</button>
                 <button type="button" data-word="signal">signal</button>
                 <button type="button" data-word="console">console</button>
@@ -84,14 +85,33 @@
                 <button type="button" data-word="launch">launch</button>
                 <button type="button" data-word="mission">mission</button>
               </div>
-              <div class="image-column" aria-label="Image cards">
-                <button type="button" data-image-match="console"><span class="card-icon console-icon"></span>control panel</button>
-                <button type="button" data-image-match="drone"><span class="card-icon drone-icon"></span>drone image</button>
-                <button type="button" data-image-match="mission"><span class="card-icon mission-icon"></span>mission map</button>
-                <button type="button" data-image-match="signal"><span class="card-icon signal-icon"></span>signal wave</button>
-                <button type="button" data-image-match="launch"><span class="card-icon launch-icon"></span>launch path</button>
-                <button type="button" data-image-match="antenna"><span class="card-icon antenna-icon"></span>antenna image</button>
+              <div class="image-row" aria-label="Image cards">
+                <button type="button" data-image-match="console">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="16" width="44" height="30" rx="6"></rect><path d="M18 26h18M18 35h28M22 52h20"></path></svg>
+                  <span>control console</span>
+                </button>
+                <button type="button" data-image-match="drone">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M23 33h18l5 7H18l5-7Z"></path><circle cx="15" cy="23" r="9"></circle><circle cx="49" cy="23" r="9"></circle><path d="M24 23h16"></path></svg>
+                  <span>drone image</span>
+                </button>
+                <button type="button" data-image-match="mission">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 14h32v38H16z"></path><path d="M23 25h18M23 33h12M23 41h16"></path><circle cx="46" cy="17" r="7"></circle></svg>
+                  <span>mission map</span>
+                </button>
+                <button type="button" data-image-match="signal">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="38" r="4"></circle><path d="M22 30a14 14 0 0 1 20 0M14 22a26 26 0 0 1 36 0M8 14a34 34 0 0 1 48 0"></path></svg>
+                  <span>signal wave</span>
+                </button>
+                <button type="button" data-image-match="launch">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 48c11-4 20-13 24-28l-8 3-7-7c-7 4-15 13-18 24l9 8Z"></path><path d="M28 36l-8 8M44 20l5-5"></path></svg>
+                  <span>launch path</span>
+                </button>
+                <button type="button" data-image-match="antenna">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54V28"></path><circle cx="32" cy="22" r="5"></circle><path d="M22 15a14 14 0 0 1 20 0M14 8a26 26 0 0 1 36 0M24 54h16"></path></svg>
+                  <span>antenna image</span>
+                </button>
               </div>
+              <div class="vocab-success" data-vocab-success hidden>Great Job! All matches correct!</div>
             </div>
             <button class="game-button primary" type="button" data-complete-step="vocab" disabled>Mission Complete</button>
           </article>
@@ -99,8 +119,8 @@
 
         <section class="mission-scene" data-step="stem" style="--scene-image: url('../assets/scenery/moonbase_lab.png')">
           <div class="scene-layer"></div>
-          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo" src="../assets/characters/milo.png" alt="Milo">
           <article class="mission-ui stem-ui">
             <p class="game-kicker">STEM Interactive Mission</p>
             <h2>Activate the Moon Drone in order.</h2>
@@ -122,8 +142,8 @@
 
         <section class="mission-scene" data-step="speaking" style="--scene-image: url('../assets/scenery/mooncity_signal.jpg')">
           <div class="scene-layer"></div>
-          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo" src="../assets/characters/milo.png" alt="Milo">
           <article class="mission-ui speaking-ui">
             <p class="game-kicker">Speaking Mission Report</p>
             <h2>Speak clearly. The moon base is listening.</h2>
@@ -147,8 +167,8 @@
 
         <section class="mission-scene" data-step="creative" style="--scene-image: url('../assets/scenery/moonbase_lab.png')">
           <div class="scene-layer"></div>
-          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo" src="../assets/characters/milo.png" alt="Milo">
           <article class="mission-ui creative-ui">
             <p class="game-kicker">Builder Game</p>
             <h2>Build a future repair machine.</h2>
@@ -172,8 +192,8 @@
 
         <section class="mission-scene" data-step="reward" style="--scene-image: url('../assets/scenery/mooncity_signal.jpg')">
           <div class="scene-layer"></div>
-          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo" src="../assets/characters/milo.png" alt="Milo">
           <article class="mission-ui reward-ui">
             <p class="game-kicker">Hidden Badge Hunt</p>
             <h2>Find all hidden rewards.</h2>
@@ -190,8 +210,8 @@
 
         <section class="mission-scene" data-step="success" style="--scene-image: url('../assets/scenery/mooncity_signal.jpg')">
           <div class="scene-layer"></div>
-          <img class="scene-leta celebrate" src="../assets/game/characters/leta_front.jpg" alt="Leta">
-          <img class="scene-milo celebrate" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <img class="scene-leta celebrate" src="../assets/characters/leta.png" alt="Leta">
+          <img class="scene-milo celebrate" src="../assets/characters/milo.png" alt="Milo">
           <article class="mission-ui success-ui">
             <p class="game-kicker">Mission Success</p>
             <h2>Moon City receives the signal.</h2>

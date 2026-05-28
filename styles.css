@@ -4129,3 +4129,196 @@ body.course-body::before {
     display: none;
   }
 }
+
+/* Character and vocabulary quality fix. */
+.gameplay-rebuild .scene-leta,
+.gameplay-rebuild .scene-milo {
+  -webkit-mask-image: none;
+  mask-image: none;
+  border-radius: 0;
+}
+
+.gameplay-rebuild .scene-leta {
+  width: clamp(142px, 15vw, 210px);
+  filter: drop-shadow(0 28px 22px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 14px rgba(112, 210, 255, 0.18));
+}
+
+.gameplay-rebuild .scene-milo {
+  width: clamp(60px, 6vw, 88px);
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 18px rgba(111, 218, 255, 0.5));
+}
+
+.gameplay-rebuild .vocab-ui {
+  width: min(780px, calc(100% - 68px));
+}
+
+.gameplay-rebuild .matching-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  min-height: 470px;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(157, 224, 255, 0.18);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(86, 198, 255, 0.14), transparent 16rem),
+    rgba(255, 255, 255, 0.055);
+  overflow: hidden;
+}
+
+.gameplay-rebuild .matching-board::before {
+  display: none;
+}
+
+.word-row,
+.image-row {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(74px, 1fr));
+  gap: 10px;
+}
+
+.word-row {
+  align-items: start;
+}
+
+.image-row {
+  align-items: end;
+  margin-top: auto;
+}
+
+.word-row button,
+.image-row button {
+  border: 1px solid rgba(182, 232, 255, 0.2);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.055));
+  color: white;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.word-row button {
+  min-height: 62px;
+  padding: 0 10px;
+  text-transform: lowercase;
+}
+
+.image-row button {
+  display: grid;
+  min-height: 132px;
+  align-content: center;
+  justify-items: center;
+  gap: 9px;
+  padding: 12px 8px;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.image-row svg {
+  width: 56px;
+  height: 56px;
+  overflow: visible;
+}
+
+.image-row svg rect,
+.image-row svg path,
+.image-row svg circle {
+  fill: rgba(111, 202, 255, 0.12);
+  stroke: #aee7ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.word-row button:hover,
+.image-row button:hover,
+.word-row button.selected {
+  transform: translateY(-4px);
+  border-color: rgba(125, 219, 255, 0.75);
+  box-shadow: 0 0 28px rgba(100, 205, 255, 0.25);
+}
+
+.word-row button.matched,
+.image-row button.matched {
+  border-color: rgba(105, 239, 183, 0.8);
+  background: linear-gradient(180deg, rgba(91, 231, 168, 0.22), rgba(255, 255, 255, 0.07));
+  box-shadow: 0 0 30px rgba(91, 231, 168, 0.3);
+}
+
+.word-row button.wrong,
+.image-row button.wrong {
+  border-color: rgba(255, 129, 129, 0.85);
+  animation: wrongShake 0.36s ease both;
+}
+
+.match-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.match-path {
+  fill: none;
+  stroke: rgba(101, 240, 191, 0.94);
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(111, 231, 255, 0.75));
+  stroke-dasharray: 10 12;
+  animation: pathPulse 1.25s linear infinite;
+}
+
+.vocab-success {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  width: min(380px, calc(100% - 36px));
+  padding: 22px;
+  border: 1px solid rgba(121, 238, 186, 0.74);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(8, 45, 42, 0.88), rgba(7, 21, 36, 0.82));
+  color: white;
+  font-size: 1.45rem;
+  font-weight: 900;
+  text-align: center;
+  box-shadow: 0 0 42px rgba(101, 240, 191, 0.32), 0 24px 70px rgba(0, 0, 0, 0.34);
+  animation: gameReveal 0.45s ease both;
+}
+
+@keyframes pathPulse {
+  to {
+    stroke-dashoffset: -44;
+  }
+}
+
+@media (max-width: 980px) {
+  .word-row,
+  .image-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gameplay-rebuild .matching-board {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 640px) {
+  .word-row,
+  .image-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gameplay-rebuild .matching-board {
+    min-height: 820px;
+    padding: 12px;
+  }
+}

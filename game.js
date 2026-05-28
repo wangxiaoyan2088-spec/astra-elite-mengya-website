@@ -94,13 +94,45 @@ let selectedWord = null;
 let vocabMatches = 0;
 const wordCards = document.querySelectorAll("[data-word]");
 const imageCards = document.querySelectorAll("[data-image-match]");
+const matchingBoard = document.querySelector("[data-matching-board]");
+const matchLines = document.querySelector("[data-match-lines]");
 const vocabFeedback = document.querySelector("[data-vocab-feedback]");
 const vocabProgress = document.querySelector("[data-vocab-progress]");
+const vocabSuccess = document.querySelector("[data-vocab-success]");
 const vocabComplete = document.querySelector("[data-complete-step='vocab']");
+const completedMatches = new Map();
 
 function clearWrongCards() {
   wordCards.forEach((card) => card.classList.remove("wrong"));
   imageCards.forEach((card) => card.classList.remove("wrong"));
+}
+
+function createMatchPath(wordCard, imageCard, key) {
+  const boardRect = matchingBoard.getBoundingClientRect();
+  const wordRect = wordCard.getBoundingClientRect();
+  const imageRect = imageCard.getBoundingClientRect();
+  const startX = wordRect.left + wordRect.width / 2 - boardRect.left;
+  const startY = wordRect.bottom - boardRect.top;
+  const endX = imageRect.left + imageRect.width / 2 - boardRect.left;
+  const endY = imageRect.top - boardRect.top;
+  const curve = Math.max(54, Math.abs(endX - startX) * 0.32);
+  const midY = startY + (endY - startY) * 0.52;
+  const d = `M ${startX} ${startY} C ${startX} ${midY - curve}, ${endX} ${midY + curve}, ${endX} ${endY}`;
+  let path = matchLines.querySelector(`[data-line="${key}"]`);
+  if (!path) {
+    path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.dataset.line = key;
+    path.classList.add("match-path");
+    matchLines.appendChild(path);
+  }
+  path.setAttribute("d", d);
+}
+
+function redrawMatchLines() {
+  completedMatches.forEach((imageCard, key) => {
+    const wordCard = document.querySelector(`[data-word="${key}"]`);
+    createMatchPath(wordCard, imageCard, key);
+  });
 }
 
 wordCards.forEach((card) => {
@@ -121,12 +153,15 @@ imageCards.forEach((card) => {
       card.classList.add("matched");
       wordCard.classList.add("matched");
       wordCard.classList.remove("selected");
+      completedMatches.set(selectedWord, card);
+      createMatchPath(wordCard, card, selectedWord);
       vocabMatches += 1;
       vocabProgress.textContent = `${vocabMatches}/6`;
       vocabFeedback.textContent = "Great job. The signal scanner is getting stronger.";
       selectedWord = null;
       if (vocabMatches === 6) {
-        vocabFeedback.textContent = "Mission Complete. All vocabulary signals are connected.";
+        vocabFeedback.textContent = "Great Job! All matches correct!";
+        vocabSuccess.hidden = false;
         vocabComplete.disabled = false;
       }
       return;
@@ -137,6 +172,8 @@ imageCards.forEach((card) => {
     setTimeout(clearWrongCards, 520);
   });
 });
+
+window.addEventListener("resize", redrawMatchLines);
 
 const sequence = ["core", "antenna", "console", "drone"];
 let sequenceIndex = 0;
