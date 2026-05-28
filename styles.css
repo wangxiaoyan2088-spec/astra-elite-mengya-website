@@ -140,35 +140,33 @@
   border: 3px solid #234f96;
   border-radius: 24px;
   background:
-    radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.96) 0 74px, rgba(193, 231, 255, 0.48) 75px 116px, transparent 118px),
-    radial-gradient(circle at 72% 24%, rgba(48, 135, 225, 0.36), transparent 16rem),
-    linear-gradient(180deg, #bce9ff 0%, #eef8ff 54%, #f5f0dc 100%);
+    linear-gradient(135deg, rgba(5, 18, 52, 0.76), rgba(40, 34, 105, 0.48) 46%, rgba(185, 229, 255, 0.28)),
+    url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
   box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.65);
 }
 
 .comic-scene.night {
   background:
-    radial-gradient(circle at 76% 18%, #f6fbff 0 78px, rgba(113, 195, 255, 0.48) 80px 122px, transparent 124px),
-    radial-gradient(circle at 52% 46%, rgba(42, 135, 255, 0.45), transparent 14rem),
-    linear-gradient(135deg, #102f78, #071737 58%, #1d2455);
+    linear-gradient(135deg, rgba(4, 13, 39, 0.82), rgba(25, 34, 92, 0.56) 48%, rgba(43, 132, 220, 0.26)),
+    url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
 }
 
 .comic-scene.workshop {
   background:
-    radial-gradient(circle at 18% 24%, rgba(255, 224, 87, 0.7), transparent 10rem),
-    linear-gradient(180deg, #dff5ff 0%, #fff6dd 100%);
+    linear-gradient(135deg, rgba(8, 26, 64, 0.68), rgba(55, 42, 118, 0.4) 48%, rgba(255, 227, 106, 0.22)),
+    url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
 }
 
 .comic-scene.words {
   background:
-    radial-gradient(circle at 78% 18%, rgba(125, 222, 255, 0.55), transparent 10rem),
-    linear-gradient(180deg, #eaf8ff, #fffdf3);
+    linear-gradient(135deg, rgba(7, 28, 69, 0.66), rgba(28, 82, 143, 0.36) 52%, rgba(255, 255, 255, 0.2)),
+    url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
 }
 
 .comic-scene.gate {
   background:
-    radial-gradient(circle at 52% 44%, rgba(62, 181, 255, 0.32), transparent 11rem),
-    linear-gradient(135deg, #0b1d49 0%, #17458c 48%, #eef7ff 49%, #fff8e8 100%);
+    linear-gradient(135deg, rgba(2, 8, 28, 0.86), rgba(24, 31, 91, 0.62) 45%, rgba(58, 164, 255, 0.22)),
+    url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
 }
 
 .scene-moon {
@@ -262,41 +260,29 @@
   border-top: 32px solid #2088d8;
 }
 
-.comic-character {
+.leta-character {
   position: absolute;
   bottom: 22px;
   left: 36px;
-  width: 130px;
-  height: 180px;
+  width: min(180px, 34%);
+  height: auto;
+  border: 5px solid rgba(255, 255, 255, 0.94);
+  border-radius: 24px;
+  object-fit: contain;
+  box-shadow: 0 18px 34px rgba(11, 33, 72, 0.26);
 }
 
-.comic-character::before {
-  content: "";
+.miro-scene {
   position: absolute;
-  top: 0;
-  left: 34px;
-  width: 76px;
-  height: 76px;
-  border: 3px solid #8a5422;
-  border-radius: 48% 52% 50% 50%;
-  background:
-    radial-gradient(circle at 35% 46%, #1b2644 0 5px, transparent 6px),
-    radial-gradient(circle at 65% 46%, #1b2644 0 5px, transparent 6px),
-    radial-gradient(circle at 50% 67%, #f2998c 0 8px, transparent 9px),
-    #ffd0a3;
-  box-shadow: inset 0 15px 0 #8b542b;
-}
-
-.comic-character::after {
-  content: "";
-  position: absolute;
-  top: 78px;
-  left: 26px;
-  width: 92px;
-  height: 92px;
-  border: 3px solid #d58a21;
-  border-radius: 28px 28px 34px 34px;
-  background: #ffd257;
+  right: 34px;
+  bottom: 32px;
+  width: min(132px, 26%);
+  height: auto;
+  border: 5px solid rgba(255, 255, 255, 0.94);
+  border-radius: 50%;
+  object-fit: contain;
+  box-shadow: 0 0 28px rgba(88, 191, 240, 0.64), 0 18px 34px rgba(11, 33, 72, 0.24);
+  animation: miroFloat 3.4s ease-in-out infinite;
 }
 
 .speech {
@@ -495,54 +481,16 @@
   animation: miroFloat 3.4s ease-in-out infinite;
 }
 
-.miro-body {
+.miro-img {
   position: absolute;
   right: 8px;
   bottom: 0;
-  width: 86px;
-  height: 100px;
-  border: 3px solid #3e8fcb;
-  border-radius: 48% 48% 42% 42%;
-  background:
-    radial-gradient(circle at 34% 42%, #101a38 0 5px, white 6px 8px, transparent 9px),
-    radial-gradient(circle at 64% 42%, #101a38 0 5px, white 6px 8px, transparent 9px),
-    radial-gradient(circle at 50% 62%, #ff8b9d 0 8px, transparent 9px),
-    linear-gradient(180deg, #7edcff, #4db4ec);
-  box-shadow: 0 0 24px rgba(77, 180, 236, 0.58);
-}
-
-.miro-body::before,
-.miro-body::after {
-  content: "";
-  position: absolute;
-  top: -26px;
-  width: 16px;
-  height: 34px;
-  border-radius: 999px;
-  background: #58bff0;
-  transform-origin: bottom center;
-}
-
-.miro-body::before {
-  left: 18px;
-  transform: rotate(-24deg);
-}
-
-.miro-body::after {
-  right: 18px;
-  transform: rotate(24deg);
-}
-
-.miro-blink {
-  position: absolute;
-  top: 40px;
-  left: 28px;
-  width: 38px;
-  height: 3px;
-  border-radius: 999px;
-  background: rgba(16, 26, 56, 0.72);
-  opacity: 0;
-  animation: miroBlink 5.2s infinite;
+  width: 110px;
+  height: auto;
+  border: 4px solid rgba(255, 255, 255, 0.94);
+  border-radius: 26px;
+  object-fit: contain;
+  box-shadow: 0 0 28px rgba(77, 180, 236, 0.68), 0 14px 28px rgba(24, 75, 130, 0.22);
 }
 
 .miro-bubble {
@@ -598,11 +546,6 @@
   50% { transform: translateY(-12px); }
 }
 
-@keyframes miroBlink {
-  0%, 92%, 100% { opacity: 0; }
-  94%, 96% { opacity: 1; }
-}
-
 @media (max-width: 940px) {
   .comic-hero,
   .science-board,
@@ -653,6 +596,16 @@
     width: 126px;
   }
 
+  .leta-character {
+    left: 18px;
+    width: 150px;
+  }
+
+  .miro-scene {
+    right: 18px;
+    width: 104px;
+  }
+
   .scene-drone::before,
   .scene-drone::after {
     width: 54px;
@@ -668,7 +621,18 @@
   }
 
   .miro-float {
+    right: 8px;
+    top: 92px;
+    width: 104px;
+    height: 132px;
+  }
+
+  .miro-bubble {
     display: none;
+  }
+
+  .miro-img {
+    width: 86px;
   }
 }
 
@@ -1409,6 +1373,503 @@ body.course-body {
     radial-gradient(circle at 82% 10%, rgba(176, 116, 255, 0.22), transparent 28rem),
     radial-gradient(circle at 50% 94%, rgba(58, 211, 255, 0.14), transparent 30rem),
     linear-gradient(180deg, #08111f 0%, #0d1730 48%, #101827 100%);
+}
+
+/* Premium Future Labs pages. Scoped away from the existing homepage. */
+.lab-page {
+  color: #172235;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 232, 165, 0.28), transparent 22rem),
+    radial-gradient(circle at 86% 12%, rgba(183, 217, 255, 0.42), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, #f5f9ff 46%, #ffffff 100%);
+}
+
+.lab-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(82, 135, 190, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(82, 135, 190, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 72%);
+}
+
+.lab-page .site-header {
+  width: min(1240px, calc(100% - 28px));
+}
+
+.lab-page .desktop-nav {
+  gap: 4px;
+}
+
+.lab-page .desktop-nav a {
+  padding: 9px 10px;
+  font-size: 0.82rem;
+}
+
+.lab-main {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 138px 0 40px;
+}
+
+.lab-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(360px, 1.04fr);
+  gap: 54px;
+  align-items: center;
+  min-height: calc(100vh - 138px);
+  padding: 36px 0 82px;
+}
+
+.compact-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.58fr);
+  min-height: auto;
+}
+
+.lab-hero h1 {
+  max-width: 790px;
+  font-size: clamp(2.7rem, 6.2vw, 5.6rem);
+  line-height: 0.98;
+}
+
+.lab-hero p {
+  max-width: 690px;
+  color: #596b80;
+}
+
+.lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.lab-hero-visual,
+.lab-panel,
+.lab-card,
+.lab-timeline article,
+.character-card {
+  border: 1px solid rgba(86, 130, 177, 0.16);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 24px 70px rgba(68, 105, 145, 0.13);
+  backdrop-filter: blur(20px);
+}
+
+.lab-hero-visual {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: 38px;
+}
+
+.moon-window {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 247, 255, 0.72)),
+    url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
+}
+
+.tech-window,
+.lab-map-visual,
+.lesson-window {
+  background:
+    radial-gradient(circle at 52% 24%, rgba(127, 188, 244, 0.24), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(239, 247, 255, 0.82)),
+    repeating-linear-gradient(90deg, transparent 0 47px, rgba(64, 123, 185, 0.045) 48px 49px),
+    repeating-linear-gradient(0deg, transparent 0 47px, rgba(64, 123, 185, 0.045) 48px 49px);
+}
+
+.lab-moon {
+  position: absolute;
+  top: 48px;
+  right: 52px;
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 32%, #fff, #dcefff 58%, #b4d9ff);
+  box-shadow: 0 0 46px rgba(123, 183, 234, 0.55);
+}
+
+.lab-dome {
+  position: absolute;
+  right: 12%;
+  bottom: 66px;
+  width: 260px;
+  height: 132px;
+  border: 1px solid rgba(49, 111, 178, 0.34);
+  border-radius: 160px 160px 28px 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(210, 232, 255, 0.52));
+}
+
+.lab-dome.central {
+  left: 50%;
+  right: auto;
+  bottom: 92px;
+  transform: translateX(-50%);
+}
+
+.lab-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(64, 123, 185, 0.5), transparent);
+}
+
+.lab-line.one {
+  top: 40%;
+  left: 8%;
+  width: 82%;
+}
+
+.lab-line.two {
+  top: 54%;
+  left: 14%;
+  width: 66%;
+}
+
+.lab-leta {
+  position: absolute;
+  left: 8%;
+  bottom: 34px;
+  width: min(240px, 40%);
+  border: 8px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  box-shadow: 0 20px 54px rgba(40, 74, 111, 0.18);
+}
+
+.lab-milo {
+  position: absolute;
+  right: 10%;
+  bottom: 58px;
+  width: min(150px, 25%);
+  border: 8px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  box-shadow: 0 0 38px rgba(82, 181, 236, 0.42), 0 20px 46px rgba(40, 74, 111, 0.16);
+  animation: float 5.2s ease-in-out infinite;
+}
+
+.lab-section {
+  padding: 72px 0;
+}
+
+.lab-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.lab-panel {
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 30px;
+}
+
+.lab-panel strong {
+  display: block;
+  margin-bottom: 16px;
+  color: #2f72b7;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-panel p {
+  margin-bottom: 0;
+  color: #41546a;
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
+.hero-panel {
+  align-self: center;
+}
+
+.module-grid,
+.lab-abilities {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.lab-abilities {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.lab-card {
+  min-height: 252px;
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.lab-card span,
+.lab-timeline span {
+  display: inline-flex;
+  margin-bottom: 20px;
+  color: #3177bd;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-card h3,
+.lab-timeline h3 {
+  font-size: 1.3rem;
+}
+
+.lab-card p,
+.lab-timeline p {
+  color: #637387;
+}
+
+.lab-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.lab-timeline.large {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lab-timeline article {
+  min-height: 230px;
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.tech-orbit {
+  position: absolute;
+  inset: 15%;
+  border: 1px dashed rgba(47, 114, 183, 0.32);
+  border-radius: 50%;
+  animation: slowSpin 24s linear infinite;
+}
+
+.printer-block,
+.drone-mark,
+.robot-mark,
+.spatial-mark,
+.map-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(49, 119, 189, 0.18);
+  background: rgba(255, 255, 255, 0.84);
+  color: #2f72b7;
+  font-weight: 900;
+  box-shadow: 0 18px 42px rgba(64, 113, 160, 0.12);
+}
+
+.printer-block {
+  left: 14%;
+  bottom: 18%;
+  width: 150px;
+  height: 92px;
+  border-radius: 22px;
+}
+
+.printer-block::before {
+  content: "3D";
+}
+
+.drone-mark {
+  top: 18%;
+  right: 14%;
+  width: 118px;
+  height: 56px;
+  border-radius: 999px;
+}
+
+.drone-mark::before {
+  content: "Drone";
+}
+
+.robot-mark {
+  top: 40%;
+  left: 18%;
+  width: 96px;
+  height: 110px;
+  border-radius: 24px;
+}
+
+.robot-mark::before {
+  content: "Robot";
+}
+
+.spatial-mark {
+  right: 18%;
+  bottom: 20%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+
+.spatial-mark::before {
+  content: "XR";
+}
+
+.map-node {
+  z-index: 2;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+}
+
+.node-a {
+  top: 16%;
+  left: 16%;
+}
+
+.node-b {
+  top: 14%;
+  right: 18%;
+}
+
+.node-c {
+  left: 12%;
+  bottom: 18%;
+}
+
+.node-d {
+  right: 14%;
+  bottom: 18%;
+}
+
+.lesson-window {
+  display: grid;
+  place-items: center;
+  padding: 42px;
+}
+
+.lesson-window img {
+  width: min(320px, 82%);
+  aspect-ratio: 185 / 260;
+  object-fit: cover;
+  border: 8px solid white;
+  border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(51, 93, 134, 0.18);
+}
+
+.character-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.character-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.38fr) minmax(0, 0.62fr);
+  gap: 34px;
+  align-items: center;
+  padding: 32px;
+  border-radius: 34px;
+}
+
+.character-card img {
+  width: min(100%, 310px);
+  margin: 0 auto;
+  border: 8px solid white;
+  border-radius: 30px;
+  box-shadow: 0 22px 56px rgba(56, 99, 140, 0.16);
+}
+
+.milo-card img {
+  border-radius: 50%;
+  box-shadow: 0 0 42px rgba(82, 181, 236, 0.35), 0 22px 56px rgba(56, 99, 140, 0.14);
+}
+
+.contact-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-panel a,
+.contact-panel span {
+  display: block;
+  padding: 15px 16px;
+  border: 1px solid rgba(86, 130, 177, 0.16);
+  border-radius: 18px;
+  background: white;
+  color: #2f72b7;
+  font-weight: 800;
+}
+
+@media (max-width: 1080px) {
+  .lab-page .desktop-nav a {
+    padding: 8px 7px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 940px) {
+  .lab-hero,
+  .compact-hero,
+  .lab-split,
+  .character-card {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-hero {
+    min-height: auto;
+  }
+
+  .module-grid,
+  .lab-abilities,
+  .lab-timeline,
+  .lab-timeline.large {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .lab-main {
+    width: min(100% - 24px, 1180px);
+    padding-top: 108px;
+  }
+
+  .lab-hero {
+    gap: 28px;
+    padding-bottom: 52px;
+  }
+
+  .lab-hero h1 {
+    font-size: 3rem;
+  }
+
+  .lab-hero-visual {
+    min-height: 430px;
+    border-radius: 28px;
+  }
+
+  .module-grid,
+  .lab-abilities,
+  .lab-timeline,
+  .lab-timeline.large {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-card,
+  .lab-timeline article {
+    min-height: auto;
+  }
+
+  .lab-leta {
+    width: 54%;
+  }
+
+  .lab-milo {
+    width: 30%;
+  }
+
+  .map-node {
+    width: 86px;
+    height: 86px;
+    font-size: 0.82rem;
+  }
 }
 
 body.course-body::before {
