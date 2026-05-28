@@ -949,21 +949,17 @@ p {
 .hero-leta {
   position: absolute;
   right: 18%;
-  bottom: 6%;
-  width: min(310px, 48%);
-  border: 10px solid white;
-  border-radius: 32px;
-  box-shadow: var(--shadow);
+  bottom: 4%;
+  width: min(300px, 46%);
+  filter: drop-shadow(0 26px 34px rgba(58, 92, 132, 0.22));
 }
 
 .hero-milo {
   position: absolute;
-  left: 7%;
-  bottom: 18%;
-  width: min(210px, 34%);
-  border: 10px solid white;
-  border-radius: 50%;
-  box-shadow: var(--shadow);
+  left: 16%;
+  bottom: 28%;
+  width: min(110px, 16%);
+  filter: drop-shadow(0 14px 22px rgba(55, 151, 210, 0.24)) drop-shadow(0 0 18px rgba(86, 190, 240, 0.28));
   animation: float 5.4s ease-in-out infinite 0.4s;
 }
 
@@ -1582,21 +1578,17 @@ body.course-body {
 .lab-leta {
   position: absolute;
   left: 8%;
-  bottom: 34px;
-  width: min(240px, 40%);
-  border: 8px solid rgba(255, 255, 255, 0.9);
-  border-radius: 28px;
-  box-shadow: 0 20px 54px rgba(40, 74, 111, 0.18);
+  bottom: 20px;
+  width: min(245px, 38%);
+  filter: drop-shadow(0 24px 32px rgba(25, 59, 98, 0.24));
 }
 
 .lab-milo {
   position: absolute;
-  right: 10%;
-  bottom: 58px;
-  width: min(150px, 25%);
-  border: 8px solid rgba(255, 255, 255, 0.92);
-  border-radius: 50%;
-  box-shadow: 0 0 38px rgba(82, 181, 236, 0.42), 0 20px 46px rgba(40, 74, 111, 0.16);
+  left: 35%;
+  bottom: 145px;
+  width: min(92px, 14%);
+  filter: drop-shadow(0 12px 20px rgba(43, 126, 184, 0.28)) drop-shadow(0 0 18px rgba(84, 190, 240, 0.3));
   animation: float 5.2s ease-in-out infinite;
 }
 
@@ -1822,14 +1814,12 @@ body.course-body {
 .character-card img {
   width: min(100%, 310px);
   margin: 0 auto;
-  border: 8px solid white;
-  border-radius: 30px;
-  box-shadow: 0 22px 56px rgba(56, 99, 140, 0.16);
+  filter: drop-shadow(0 24px 36px rgba(56, 99, 140, 0.18));
 }
 
 .milo-card img {
-  border-radius: 50%;
-  box-shadow: 0 0 42px rgba(82, 181, 236, 0.35), 0 22px 56px rgba(56, 99, 140, 0.14);
+  width: min(100%, 180px);
+  filter: drop-shadow(0 14px 24px rgba(56, 99, 140, 0.16)) drop-shadow(0 0 20px rgba(82, 181, 236, 0.28));
 }
 
 .contact-panel {
@@ -1921,8 +1911,10 @@ body.course-body {
   }
 
   .lab-milo {
-    width: 30%;
-  }
+    left: 44%;
+    bottom: 128px;
+    width: 18%;
+}
 
   .map-node {
     width: 86px;
@@ -2489,13 +2481,13 @@ body.course-body::before {
 
   .hero-leta {
     right: 9%;
-    width: 58%;
+    width: 55%;
   }
 
   .hero-milo {
-    left: 5%;
-    bottom: 16%;
-    width: 38%;
+    left: 12%;
+    bottom: 30%;
+    width: 20%;
   }
 
   .floating-moon {
