@@ -6,22 +6,26 @@ const tabs = document.querySelectorAll("[data-work]");
 const workTitle = document.querySelector("[data-work-title]");
 const workCopy = document.querySelector("[data-work-copy]");
 const workVisual = document.querySelector("[data-work-visual]");
+const workImage = document.querySelector("[data-work-image]");
 
 const workContent = {
   moon: {
-    title: "Moon Garden City",
-    copy: "孩子设计一座能种植物、收集太阳能、保护宇航员情绪的月球花园城市。",
-    color: "linear-gradient(180deg, rgba(220, 239, 255, 0.78), rgba(255, 255, 255, 0.9))"
+    title: "Moon City Awakens",
+    copy: "月球城市重新启动。孩子跟随 Leta 与 Milo 找到沉睡基地的第一束光，设计城市启动任务。",
+    image: "assets/mooncity.png",
+    alt: "Moon City Awakens 月球城市重新启动"
   },
   drone: {
-    title: "Kind Drone Mission",
-    copy: "孩子画出一台能给未来教室运送工具、观察天气并避开同伴的友好无人机。",
-    color: "linear-gradient(180deg, rgba(255, 228, 154, 0.5), rgba(255, 255, 255, 0.92))"
+    title: "Drone Delivery Mission",
+    copy: "无人机配送任务。孩子规划一条安全路线，让无人机把工具送到 Moon City 的新实验区。",
+    image: "assets/drone%20task.png",
+    alt: "Drone Delivery Mission 无人机配送任务"
   },
   robot: {
     title: "AI Emotion Buddy",
-    copy: "孩子创造一个会倾听、会发光、会提醒人类保持想象力的 AI 小伙伴。",
-    color: "linear-gradient(180deg, rgba(233, 228, 255, 0.72), rgba(255, 255, 255, 0.94))"
+    copy: "AI情绪伙伴。孩子设计一个会倾听、会发光、能帮助人类表达感受的 AI companion。",
+    image: "assets/ai%20emotion%20buddy.png",
+    alt: "AI Emotion Buddy AI情绪伙伴"
   }
 };
 
@@ -67,7 +71,10 @@ tabs.forEach((tab) => {
 
     workTitle.textContent = content.title;
     workCopy.textContent = content.copy;
-    workVisual.style.background = `${content.color}, repeating-linear-gradient(90deg, transparent 0 38px, rgba(64, 123, 185, 0.06) 39px 40px)`;
+    if (workImage) {
+      workImage.src = content.image;
+      workImage.alt = content.alt;
+    }
   });
 });
 
