@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body class="game-body">
+<body class="game-body gameplay-rebuild">
   <div class="game-shell">
     <header class="game-header">
       <a class="game-brand" href="../" aria-label="返回 ASTRA ELITE 首页">
@@ -24,142 +24,186 @@
       </nav>
     </header>
 
-    <main class="game-main">
-      <section class="game-screen active" data-game-screen="opening">
-        <div class="game-hero">
-          <div class="game-copy">
-            <p class="game-kicker">EP1 Demo · 2086 Moon Civilization</p>
-            <h1>The Lost Drone Signal</h1>
-            <p>Leta 与 Milo 进入 Astra Academy，发现一架月球无人机突然失去信号。第一章任务：重连信号塔，唤醒 Moon City 的第一束光。</p>
-            <button class="game-button primary" type="button" data-go="identity">Enter The Future</button>
-          </div>
-          <div class="game-visual opening-visual">
-            <img src="../assets/game/futurelab.png" alt="Astra Future Labs 月球基地场景">
-            <div class="game-dialogue">Milo: The future is waiting.</div>
-          </div>
+    <main class="game-main mission-game">
+      <section class="game-intro" data-intro>
+        <div class="game-copy">
+          <p class="game-kicker">EP1 · Moon Base Mission</p>
+          <h1>The Lost Drone Signal</h1>
+          <p>进入 Astra Academy，和 Leta、Milo 一起完成真实任务：听见信号、破解词汇、启动无人机、完成英文报告、建造修复机器，并找回隐藏徽章。</p>
+          <button class="game-button primary" type="button" data-start-game>Start Mission</button>
+        </div>
+        <div class="game-visual opening-visual">
+          <img src="../assets/game/scenes/scene_story_drone.png" alt="Moon City drone signal scene">
+          <img class="scene-leta intro-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo intro-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <div class="game-dialogue">Milo: A lost drone signal is calling us.</div>
         </div>
       </section>
 
-      <section class="game-screen" data-game-screen="identity">
-        <div class="game-panel wide">
-          <p class="game-kicker">Identity Selection</p>
-          <h2>Who are you today?</h2>
-          <div class="identity-grid">
-            <button type="button" data-identity="Explorer"><span>Explorer</span><small>发现隐藏信号</small></button>
-            <button type="button" data-identity="Builder"><span>Builder</span><small>修复未来工具</small></button>
-            <button type="button" data-identity="Dreamer"><span>Dreamer</span><small>想象新的城市</small></button>
-            <button type="button" data-identity="Inventor"><span>Inventor</span><small>创造任务方案</small></button>
-          </div>
-          <button class="game-button primary" type="button" data-go="milo" disabled data-identity-next>Continue</button>
-        </div>
-      </section>
+      <section class="gameplay-shell" data-gameplay hidden>
+        <aside class="mission-steps" aria-label="Mission steps">
+          <button class="active" type="button" data-step-button="story">1 Story</button>
+          <button class="locked" type="button" data-step-button="vocab">2 Vocabulary</button>
+          <button class="locked" type="button" data-step-button="stem">3 STEM Game</button>
+          <button class="locked" type="button" data-step-button="speaking">4 Speaking</button>
+          <button class="locked" type="button" data-step-button="creative">5 Creative</button>
+          <button class="locked" type="button" data-step-button="reward">6 Reward</button>
+        </aside>
 
-      <section class="game-screen" data-game-screen="milo">
-        <div class="milo-intro game-panel wide">
-          <img src="../assets/game/milo-front.png" alt="Milo AI 伙伴">
-          <div>
-            <p class="game-kicker">Milo Introduction</p>
-            <h2>Welcome back, <span data-player-role>Future Explorer</span>.</h2>
-            <p>“The Moon City is quiet. A drone signal is missing. Shall we continue rebuilding the world?”</p>
-            <button class="game-button primary" type="button" data-go="map">Open Moon City Map</button>
-          </div>
-        </div>
-      </section>
+        <section class="mission-scene active" data-step="story" style="--scene-image: url('../assets/game/scenes/scene_story_drone.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <div class="signal-source" aria-hidden="true"></div>
+          <div class="mission-object drone-console">Drone Console</div>
+          <article class="mission-ui story-ui">
+            <p class="game-kicker">Story Scene</p>
+            <h2 data-dialogue-speaker>Milo receives a signal.</h2>
+            <p data-dialogue-text>Listen. A drone signal is waking up inside Astra Academy.</p>
+            <div class="mission-progress"><span data-dialogue-progress>1/4</span></div>
+            <button class="game-button primary" type="button" data-next-dialogue>Next Dialogue</button>
+            <button class="game-button primary hidden" type="button" data-complete-step="story">Start Vocabulary Mission</button>
+          </article>
+        </section>
 
-      <section class="game-screen" data-game-screen="map">
-        <div class="map-layout">
-          <div class="moon-map">
-            <img src="../assets/game/futurelab.png" alt="Moon City Map">
-            <button class="map-hotspot unlocked" type="button" data-go="mission">EP1<br>Drone Center</button>
-            <button class="map-hotspot locked lab-two" type="button">LOCKED<br>AI Lab</button>
-            <button class="map-hotspot locked lab-three" type="button">LOCKED<br>Moon Gate</button>
-          </div>
-          <aside class="game-panel map-status">
-            <p class="game-kicker">Moon City Map</p>
-            <h2>只有第一章已解锁。</h2>
-            <p>完成 EP1 后，Moon Energy 会点亮下一段任务路径。</p>
-            <div class="energy-meter"><span style="width: 12%"></span></div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="game-screen" data-game-screen="mission">
-        <div class="mission-layout">
-          <aside class="mission-steps" aria-label="Mission steps">
-            <button class="active" type="button" data-step-button="story">1 Story</button>
-            <button type="button" data-step-button="vocab">2 Vocabulary</button>
-            <button type="button" data-step-button="drone">3 STEM Game</button>
-            <button type="button" data-step-button="speaking">4 Speaking</button>
-            <button type="button" data-step-button="creative">5 Creative</button>
-            <button type="button" data-step-button="reward">6 Reward</button>
-          </aside>
-
-          <div class="mission-stage">
-            <article class="mission-card active" data-step="story">
-              <p class="game-kicker">Story Scene</p>
-              <h2>Leta activates a Moon drone.</h2>
-              <div class="story-comic">
-                <img src="../assets/game/leta-reference.jpg" alt="Leta">
-                <p>A soft blue signal flashes above Astra Academy. Leta touches the drone console. The propeller starts spinning, then the signal disappears.</p>
+        <section class="mission-scene" data-step="vocab" style="--scene-image: url('../assets/game/scenes/scene_vocabulary_control_room.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <article class="mission-ui vocab-ui">
+            <p class="game-kicker">Vocabulary Matching Game</p>
+            <h2>Match the mission words.</h2>
+            <p class="milo-hint" data-vocab-feedback>Try matching the signal with the wave image.</p>
+            <div class="mission-progress"><span data-vocab-progress>0/6</span></div>
+            <div class="matching-board">
+              <div class="word-column" aria-label="Word cards">
+                <button type="button" data-word="drone">drone</button>
+                <button type="button" data-word="signal">signal</button>
+                <button type="button" data-word="console">console</button>
+                <button type="button" data-word="antenna">antenna</button>
+                <button type="button" data-word="launch">launch</button>
+                <button type="button" data-word="mission">mission</button>
               </div>
-              <button class="game-button primary" type="button" data-step-next="vocab">Start Vocabulary</button>
-            </article>
-
-            <article class="mission-card" data-step="vocab">
-              <p class="game-kicker">Vocabulary Challenge</p>
-              <h2>Match the future words.</h2>
-              <div class="vocab-grid">
-                <button type="button" data-vocab>Drone</button>
-                <button type="button" data-vocab>Signal</button>
-                <button type="button" data-vocab>Propeller</button>
-                <button type="button" data-vocab>Activate</button>
-                <button type="button" data-vocab>Moon</button>
-                <button type="button" data-vocab>Build</button>
+              <div class="image-column" aria-label="Image cards">
+                <button type="button" data-image-match="console"><span class="card-icon console-icon"></span>control panel</button>
+                <button type="button" data-image-match="drone"><span class="card-icon drone-icon"></span>drone image</button>
+                <button type="button" data-image-match="mission"><span class="card-icon mission-icon"></span>mission map</button>
+                <button type="button" data-image-match="signal"><span class="card-icon signal-icon"></span>signal wave</button>
+                <button type="button" data-image-match="launch"><span class="card-icon launch-icon"></span>launch path</button>
+                <button type="button" data-image-match="antenna"><span class="card-icon antenna-icon"></span>antenna image</button>
               </div>
-              <p class="mission-hint" data-vocab-status>Tap all six words to charge the signal scanner.</p>
-              <button class="game-button primary" type="button" data-step-next="drone" disabled data-vocab-next>Open Drone Game</button>
-            </article>
+            </div>
+            <button class="game-button primary" type="button" data-complete-step="vocab" disabled>Mission Complete</button>
+          </article>
+        </section>
 
-            <article class="mission-card" data-step="drone">
-              <p class="game-kicker">STEM Mini Game</p>
-              <h2>Drag the drone to reconnect the signal tower.</h2>
-              <div class="drone-game" data-drone-area>
-                <img class="drone-bg" src="../assets/game/drone-active-plat.png" alt="Drone Center">
-                <div class="signal-tower" data-drop-zone>Signal Tower</div>
-                <button class="drone-token" type="button" data-drone-token aria-label="Drag drone">Drone</button>
+        <section class="mission-scene" data-step="stem" style="--scene-image: url('../assets/game/scenes/scene_stem_drone_platform.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <article class="mission-ui stem-ui">
+            <p class="game-kicker">STEM Interactive Mission</p>
+            <h2>Activate the Moon Drone in order.</h2>
+            <p class="milo-hint" data-stem-feedback>Click energy core first.</p>
+            <div class="sequence-board">
+              <button type="button" data-sequence="core">1 Energy Core</button>
+              <button type="button" data-sequence="antenna">2 Antenna</button>
+              <button type="button" data-sequence="console">3 Console</button>
+              <button type="button" data-sequence="drone">4 Drone</button>
+            </div>
+            <button class="launch-signal" type="button" data-launch disabled>Launch Signal</button>
+            <button class="game-button primary" type="button" data-complete-step="stem" disabled>Unlock Speaking</button>
+          </article>
+          <div class="stem-object core" data-object-label="core">Core</div>
+          <div class="stem-object antenna" data-object-label="antenna">Antenna</div>
+          <div class="stem-object console" data-object-label="console">Console</div>
+          <div class="stem-object drone" data-object-label="drone">Drone</div>
+        </section>
+
+        <section class="mission-scene" data-step="speaking" style="--scene-image: url('../assets/game/scenes/scene_speaking_signal_hall.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <article class="mission-ui speaking-ui">
+            <p class="game-kicker">Speaking Mission Report</p>
+            <h2>Speak clearly. The moon base is listening.</h2>
+            <div class="sentence-card">
+              <span data-sentence-count>Sentence 1/5</span>
+              <p data-sentence-text>“We found the drone signal.”</p>
+            </div>
+            <div class="speaking-controls">
+              <button class="audio-button" type="button" data-play-audio>Play Audio</button>
+              <button class="mic-button" type="button" data-record-sentence>Record</button>
+              <div class="sound-wave" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="score-row">
+              <span data-sentence-score>Score: 0/20</span>
+              <span data-total-score>Total: 0/100</span>
+            </div>
+            <p class="milo-hint" data-speaking-feedback>Record each sentence to reach 100/100.</p>
+            <button class="game-button primary" type="button" data-complete-step="speaking" disabled>Speaking Mission Passed</button>
+          </article>
+        </section>
+
+        <section class="mission-scene" data-step="creative" style="--scene-image: url('../assets/game/scenes/scene_creative_builder_lab.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <article class="mission-ui creative-ui">
+            <p class="game-kicker">Builder Game</p>
+            <h2>Build a future repair machine.</h2>
+            <p class="milo-hint" data-build-feedback>Drag parts into the build zone.</p>
+            <div class="build-progress"><span data-build-progress>0/6 parts placed</span></div>
+            <div class="builder-board">
+              <div class="parts-tray">
+                <button type="button" draggable="true" data-part="body">drone body</button>
+                <button type="button" draggable="true" data-part="wings">wings</button>
+                <button type="button" draggable="true" data-part="engine">engine</button>
+                <button type="button" draggable="true" data-part="antenna">antenna</button>
+                <button type="button" draggable="true" data-part="core">signal core</button>
+                <button type="button" draggable="true" data-part="solar">solar panel</button>
+                <button type="button" draggable="true" data-part="wheel">moon wheel</button>
               </div>
-              <p class="mission-hint" data-drone-status>拖拽 Drone 到 Signal Tower 上。</p>
-              <button class="game-button primary" type="button" data-step-next="speaking" disabled data-drone-next>Continue</button>
-            </article>
+              <div class="build-zone" data-build-zone>Drop parts here</div>
+            </div>
+            <button class="game-button primary" type="button" data-complete-step="creative" disabled>Creative Mission Complete</button>
+          </article>
+        </section>
 
-            <article class="mission-card" data-step="speaking">
-              <p class="game-kicker">Speaking Mission</p>
-              <h2>Mission Report</h2>
-              <p class="speech-line">“We found the drone signal.”</p>
-              <button class="game-button secondary" type="button" data-record>Hold to Record</button>
-              <p class="mission-hint" data-record-status>Demo 模式：点击按钮模拟录音完成。</p>
-              <button class="game-button primary" type="button" data-step-next="creative" disabled data-record-next>Creative Mission</button>
-            </article>
+        <section class="mission-scene" data-step="reward" style="--scene-image: url('../assets/game/scenes/scene_reward_moon_city.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <article class="mission-ui reward-ui">
+            <p class="game-kicker">Hidden Badge Hunt</p>
+            <h2>Find all hidden rewards.</h2>
+            <p class="milo-hint" data-reward-feedback>Look carefully. A badge may be hidden near the tower.</p>
+            <div class="collection-bar" data-collection>0/5 badges found</div>
+            <button class="game-button primary" type="button" data-complete-step="reward" disabled>Show Mission Success</button>
+          </article>
+          <button class="hidden-badge badge-one" type="button" data-badge="Explorer Badge">Explorer Badge</button>
+          <button class="hidden-badge badge-two" type="button" data-badge="Moon Energy Crystal">Moon Energy Crystal</button>
+          <button class="hidden-badge badge-three" type="button" data-badge="Signal Fragment">Signal Fragment</button>
+          <button class="hidden-badge badge-four" type="button" data-badge="Future Builder Star">Future Builder Star</button>
+          <button class="hidden-badge badge-five" type="button" data-badge="Milo Secret Badge">Milo Secret Badge</button>
+        </section>
 
-            <article class="mission-card" data-step="creative">
-              <p class="game-kicker">Creative Mission</p>
-              <h2>Design a future repair machine.</h2>
-              <textarea data-creative rows="5" placeholder="My repair machine can..."></textarea>
-              <button class="game-button primary" type="button" data-step-next="reward" disabled data-creative-next>Submit Idea</button>
-            </article>
-
-            <article class="mission-card" data-step="reward">
-              <p class="game-kicker">Mission Success</p>
-              <h2>Moon City receives the first signal.</h2>
-              <div class="reward-grid">
-                <span>+50 Moon Energy</span>
-                <span>Explorer Badge</span>
-                <span>Mission 02 Loading...</span>
-              </div>
-              <button class="game-button primary" type="button" data-go="map">Back to Moon City</button>
-            </article>
-          </div>
-        </div>
+        <section class="mission-scene" data-step="success" style="--scene-image: url('../assets/game/scenes/scene_success_moon_city.png')">
+          <div class="scene-layer"></div>
+          <img class="scene-leta celebrate" src="../assets/game/characters/leta_front.jpg" alt="Leta">
+          <img class="scene-milo celebrate" src="../assets/game/characters/milo_flying.jpg" alt="Milo">
+          <article class="mission-ui success-ui">
+            <p class="game-kicker">Mission Success</p>
+            <h2>Moon City receives the signal.</h2>
+            <div class="reward-grid">
+              <span>+120 Moon Energy</span>
+              <span>Explorer Badge</span>
+              <span>New Area Unlocked</span>
+            </div>
+            <p>Next Mission Preview: The Robot Factory wakes up.</p>
+            <button class="game-button primary" type="button" data-back-map>Back to Moon City</button>
+          </article>
+        </section>
       </section>
     </main>
   </div>
