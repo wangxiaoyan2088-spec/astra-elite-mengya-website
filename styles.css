@@ -1518,6 +1518,26 @@ body.course-body {
     url("assets/backgrounds/moon-base-bg.jpg") center / cover no-repeat;
 }
 
+.has-story-video {
+  background: #eaf6ff;
+}
+
+.story-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.has-story-video .lab-moon,
+.has-story-video .lab-dome,
+.has-story-video .lab-line {
+  display: none;
+}
+
 .tech-window,
 .lab-map-visual,
 .lesson-window {
