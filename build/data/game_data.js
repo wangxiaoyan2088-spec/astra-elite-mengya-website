@@ -40,8 +40,8 @@ window.ASTRA_GAME_DATA = {
       boss_state: "waiting",
       xp: 240,
       xp_reward: 240,
-      energy_reward: 90,
-      boss: "Watcher Drone",
+      energy_reward: 50,
+      boss: "PIX AI",
       image: "../assets/scenery/moonbase_lab.png",
       theme: "Drone Navigation",
       entry: "game/ep02/index.html"
@@ -137,7 +137,7 @@ window.ASTRA_GAME_DATA = {
       { id: "stage1", type: "learning", label: "Stage 1", title: "Route Vocabulary", description: "Learn route, antenna, launch, mission, map, and drone.", xp: 40 },
       { id: "stage2", type: "learning", label: "Stage 2", title: "Path Logic", description: "Choose the safest path around the warning zone.", xp: 50 },
       { id: "ai_challenge", type: "ai_challenge", label: "AI Challenge", title: "Command the Drone", description: "Write an English command to guide the drone home.", xp: 60 },
-      { id: "boss", type: "boss", label: "Boss", title: "Watcher Drone", description: "Calm the warning system with precise English.", xp: 100 },
+      { id: "boss", type: "boss", label: "Boss", title: "PIX AI Distortion", description: "Calm the warning system with precise English.", xp: 100 },
       { id: "reward", type: "reward", label: "Reward", title: "Signal Route Badge", description: "Earn XP and open the next route.", xp: 240 }
     ]
   },
@@ -155,6 +155,20 @@ window.ASTRA_GAME_DATA = {
         "Try: Repair the drone signal route."
       ],
       teaching_mode: "PIX needs a simple command with an action and a target."
+    },
+    EP02: {
+      boss_id: "pix_ai_signal",
+      name: "PIX AI",
+      status: "SIGNAL DISTORTION ACTIVE",
+      opening: "SIGNAL DISTORTION ACTIVE",
+      hp: 100,
+      correct_keywords: ["repair", "signal", "route", "antenna", "restore", "drone"],
+      hints: [
+        "Use repair + signal.",
+        "Mention the route or antenna.",
+        "Try: Repair the signal route."
+      ],
+      teaching_mode: "PIX needs a repair command for the signal route."
     }
   }
 };

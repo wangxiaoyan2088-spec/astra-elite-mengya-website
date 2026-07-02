@@ -31,8 +31,8 @@
     "boss_state": "waiting",
     "xp": 240,
     "xp_reward": 240,
-    "energy_reward": 90,
-    "boss": "Watcher Drone",
+    "energy_reward": 50,
+    "boss": "PIX AI",
     "image": "../assets/scenery/moonbase_lab.png",
     "theme": "Drone Navigation",
     "entry": "game/ep02/index.html"

@@ -1,0 +1,47 @@
+{
+  "id": "EP02",
+  "title": "Signal Route",
+  "flow": ["START", "STORY", "WORD_PUZZLE", "AI_COMMAND", "BOSS_CHALLENGE", "REWARD", "COMPLETE"],
+  "reward": {
+    "xp": 240,
+    "energy": 50,
+    "badge": "Signal Fixer",
+    "unlock": "EP03"
+  },
+  "story": {
+    "alert": "Drone signal lost in desert grid",
+    "milo": "Signal waves are breaking. We need a clear route command.",
+    "leta": "Start with the mission words, then repair the signal path."
+  },
+  "wordPuzzle": {
+    "prompt": "Build the repair command.",
+    "target": "Repair the drone signal route",
+    "tiles": ["Repair", "the", "drone", "signal", "route"],
+    "hint": "Think about signal path: Repair + drone + signal + route."
+  },
+  "aiCommand": {
+    "prompt": "Write a command to fix the system",
+    "accepted": [
+      "repair drone signal route",
+      "restore antenna connection",
+      "locate lost drone signal"
+    ],
+    "requiredAny": [
+      ["signal", "repair"],
+      ["antenna", "restore"],
+      ["drone", "locate", "signal"]
+    ],
+    "hint": "Try using repair + signal."
+  },
+  "boss": {
+    "name": "PIX AI",
+    "status": "SIGNAL DISTORTION ACTIVE",
+    "question": "Choose the correct repair action.",
+    "choices": [
+      { "id": "A", "label": "Turn off system", "correct": false },
+      { "id": "B", "label": "Repair signal route", "correct": true },
+      { "id": "C", "label": "Ignore warning", "correct": false }
+    ],
+    "hint": "PIX is not an enemy. Use a repair action, not an escape action."
+  }
+}

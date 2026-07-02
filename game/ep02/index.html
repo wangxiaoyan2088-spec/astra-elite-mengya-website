@@ -3,49 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EP02 The Lost Drone Signal | ASTRA ELITE AI Game</title>
-  <meta name="description" content="EP02 The Lost Drone Signal 关卡世界。">
+  <title>EP02 Signal Route | ASTRA ELITE AI Game</title>
+  <meta name="description" content="EP02 Signal Route 5阶段 AI任务闯关系统。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
 </head>
-<body class="ai-game-body ep-world-body" data-ep-id="EP02">
+<body class="ai-game-body ep02-game-body" data-ep-id="EP02">
   <div class="ai-particles" aria-hidden="true"></div>
-  <div class="ai-game-shell">
-    <header class="ai-game-header">
+  <div class="ep02-signal-field" aria-hidden="true"></div>
+
+  <div class="ai-game-shell ep02-game-shell">
+    <header class="ai-game-header ep02-game-header">
       <a class="ai-game-brand" href="../index.html" aria-label="返回游戏地图">
         <span>02</span>
-        <strong>EP02 · THE LOST DRONE SIGNAL</strong>
+        <strong>EP02 · SIGNAL ROUTE</strong>
       </a>
+      <div class="top-game-title">
+        <strong>DRONE SIGNAL MISSION</strong>
+        <span>State-driven AI Level</span>
+      </div>
       <nav aria-label="EP navigation">
         <a href="../index.html">World Map</a>
         <a href="../../index.html">Home</a>
       </nav>
     </header>
 
-    <main class="ep-world-page">
-      <section class="ep-stage-hero">
-        <div>
-          <p class="game-system-label">Unlocked EP World</p>
-          <h1>Signal Route: 找回消失的无人机</h1>
-          <p>银色无人机离开月球城市航线。玩家需要学习 route、antenna、launch、mission 等词汇，并规划安全路径。</p>
-          <div class="ep-action-row">
-            <a class="ai-game-button primary" href="../index.html">Back to World Map</a>
-            <button class="ai-game-button" type="button" data-award-node>Claim Preview XP</button>
+    <main class="ep02-game-page" data-ep02-game>
+      <section class="ep02-hud-panel">
+        <div class="ep02-hud-player">
+          <div class="hud-avatar">M</div>
+          <div>
+            <span>Player</span>
+            <strong>Milo</strong>
           </div>
         </div>
-        <div class="ep-visual-card">
-          <img src="../../assets/scenery/moonbase_lab.png" alt="Moon base lab">
-          <div class="ep-dialogue">Leta: The drone path is missing from the map.</div>
+        <div class="ep02-hud-stat">
+          <span>Game State</span>
+          <strong data-ep02-state>START</strong>
+        </div>
+        <div class="ep02-hud-stat">
+          <span>XP</span>
+          <strong data-ep02-xp>0</strong>
+        </div>
+        <div class="ep02-hud-stat">
+          <span>Energy</span>
+          <strong data-ep02-energy>100</strong>
+        </div>
+        <div class="ep02-signal-bar" aria-label="Signal restoration progress">
+          <span>Signal Restoration</span>
+          <div><i data-ep02-progress-bar></i></div>
+          <strong data-ep02-progress-text>0%</strong>
         </div>
       </section>
 
-      <section class="ep-node-track" data-ep-nodes></section>
+      <section class="ep02-stage-track" aria-label="EP02 mission flow">
+        <span data-step="STORY">Story</span>
+        <span data-step="WORD_PUZZLE">Word Puzzle</span>
+        <span data-step="AI_COMMAND">AI Command</span>
+        <span data-step="BOSS_CHALLENGE">Boss</span>
+        <span data-step="REWARD">Reward</span>
+      </section>
+
+      <section class="ep02-game-board" data-ep02-board></section>
+
+      <aside class="ep02-leta-hint" data-ep02-hint>
+        <span>Leta Hint</span>
+        <p>Follow the signal path. I will help when the system gets noisy.</p>
+      </aside>
     </main>
   </div>
 
   <script src="../../data/game_data.js"></script>
   <script src="../../game-engine.js"></script>
+  <script src="../../game/ep02/ep02-game.js"></script>
 </body>
 </html>
