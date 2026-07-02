@@ -4372,9 +4372,9 @@ body.course-body::before {
 }
 
 .ai-game-shell {
-  width: min(1220px, calc(100% - 28px));
+  width: min(1480px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 22px 0 54px;
+  padding: 14px 0 34px;
 }
 
 .ai-game-header {
@@ -4382,13 +4382,36 @@ body.course-body::before {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  min-height: 72px;
-  padding: 14px 18px;
+  min-height: 68px;
+  padding: 10px 16px;
   border: 1px solid rgba(157, 218, 255, 0.25);
   border-radius: 24px;
   background: rgba(9, 18, 39, 0.68);
   box-shadow: 0 22px 80px rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(20px);
+}
+
+.top-game-title {
+  display: grid;
+  min-width: min(320px, 36vw);
+  padding: 13px 28px;
+  border: 1px solid rgba(107, 205, 255, 0.28);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(22, 80, 145, 0.76), rgba(9, 34, 82, 0.68));
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 28px rgba(72, 192, 255, 0.18);
+}
+
+.top-game-title strong {
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.top-game-title span {
+  color: rgba(231, 244, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .ai-game-brand,
@@ -4432,7 +4455,40 @@ body.course-body::before {
 .world-map-page,
 .ep-world-page,
 .boss-battle-page {
-  padding-top: 26px;
+  padding-top: 18px;
+}
+
+.game-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.game-map-column {
+  min-width: 0;
+}
+
+.game-side-column {
+  display: grid;
+  gap: 16px;
+}
+
+.map-top-hud {
+  position: absolute;
+  z-index: 4;
+  top: 22px;
+  left: 26px;
+  right: 26px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.map-top-hud .player-hud,
+.map-top-hud .map-tools {
+  pointer-events: auto;
 }
 
 .world-hero,
@@ -4499,10 +4555,11 @@ body.course-body::before {
 
 .player-hud {
   display: grid;
-  grid-template-columns: auto repeat(3, minmax(74px, 1fr));
-  gap: 12px;
+  grid-template-columns: auto minmax(70px, 1fr) auto;
+  gap: 10px 12px;
   align-content: center;
-  padding: 16px;
+  width: 260px;
+  padding: 12px;
 }
 
 .player-hud .hud-avatar {
@@ -4510,11 +4567,41 @@ body.course-body::before {
   width: 58px;
   height: 58px;
   place-items: center;
-  border-radius: 20px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #56d8ff, #a575ff);
   color: white;
   font-weight: 900;
   font-size: 1.3rem;
+}
+
+.player-hud div:nth-child(4),
+.player-hud div:nth-child(5),
+.player-hud div:nth-child(6) {
+  grid-column: span 1;
+}
+
+.map-tools {
+  display: inline-flex;
+  gap: 18px;
+  padding: 10px 12px;
+  border: 1px solid rgba(154, 224, 255, 0.2);
+  border-radius: 18px;
+  background: rgba(5, 18, 40, 0.34);
+  backdrop-filter: blur(10px);
+}
+
+.map-tools span {
+  display: grid;
+  place-items: center;
+  gap: 3px;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.map-tools small {
+  color: rgba(238, 247, 255, 0.86);
+  font-size: 0.68rem;
 }
 
 .player-hud span {
@@ -4532,21 +4619,71 @@ body.course-body::before {
 
 .world-map-panel {
   position: relative;
-  min-height: 520px;
-  margin-top: 24px;
+  min-height: 650px;
+  margin-top: 0;
   overflow: hidden;
-  padding: clamp(20px, 4vw, 46px);
+  padding: 150px 44px 56px;
   background:
-    radial-gradient(circle at 22% 26%, rgba(102, 221, 255, 0.18), transparent 20rem),
-    radial-gradient(circle at 78% 70%, rgba(255, 219, 104, 0.14), transparent 18rem),
+    linear-gradient(180deg, rgba(20, 89, 155, 0.18), rgba(4, 19, 45, 0.26)),
+    url("assets/scenery/mooncity_signal.jpg") center / cover no-repeat,
     linear-gradient(145deg, rgba(13, 31, 63, 0.82), rgba(37, 27, 75, 0.74));
+  box-shadow: inset 0 0 160px rgba(3, 9, 24, 0.76), 0 24px 80px rgba(0, 0, 0, 0.3);
+}
+
+.map-sky-title {
+  position: absolute;
+  z-index: 3;
+  top: 68px;
+  left: 50%;
+  display: grid;
+  min-width: 320px;
+  padding: 18px 34px;
+  border: 1px solid rgba(116, 219, 255, 0.3);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(24, 84, 147, 0.84), rgba(11, 35, 82, 0.8));
+  text-align: center;
+  transform: translateX(-50%);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24), 0 0 30px rgba(85, 206, 255, 0.18);
+}
+
+.map-sky-title strong {
+  font-size: 1.35rem;
+  color: white;
+}
+
+.map-sky-title span {
+  color: rgba(229, 243, 255, 0.76);
+  font-weight: 800;
+}
+
+.start-island {
+  position: absolute;
+  z-index: 2;
+  left: 50px;
+  top: 245px;
+  display: grid;
+  width: 150px;
+  height: 96px;
+  place-items: center;
+  border-radius: 50% 50% 42% 42%;
+  background: linear-gradient(180deg, #5ad56b, #33843e 50%, #734822 52%, #3c2517);
+  color: white;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.32);
+}
+
+.start-island span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(19, 43, 91, 0.82);
+  font-size: 0.74rem;
+  font-weight: 900;
 }
 
 .world-path {
   position: absolute;
-  inset: 26% 8% auto;
-  height: 52%;
-  border-top: 10px dotted rgba(117, 224, 255, 0.34);
+  inset: 43% 9% auto;
+  height: 40%;
+  border-top: 9px dashed rgba(244, 251, 255, 0.72);
   border-radius: 50%;
   transform: rotate(-6deg);
 }
@@ -4576,8 +4713,20 @@ body.course-body::before {
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(180px, 1fr));
-  gap: 82px 54px;
+  gap: 92px 72px;
   align-items: center;
+}
+
+.ep-world-node:nth-child(1) {
+  transform: translateY(-18px);
+}
+
+.ep-world-node:nth-child(2) {
+  transform: translateY(-28px);
+}
+
+.ep-world-node:nth-child(3) {
+  transform: translateY(-8px);
 }
 
 .ep-world-node {
@@ -4587,14 +4736,17 @@ body.course-body::before {
 
 .ep-world-node button,
 .ep-world-node a {
+  position: relative;
+  z-index: 2;
   display: grid;
-  width: 100%;
-  min-height: 178px;
+  width: min(170px, 100%);
+  min-height: 148px;
+  margin: 0 auto;
   place-items: center;
-  padding: 18px;
+  padding: 12px 14px 18px;
   border: 1px solid rgba(147, 224, 255, 0.36);
-  border-radius: 30px;
-  background: rgba(10, 22, 46, 0.76);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(32, 52, 124, 0.9), rgba(18, 27, 70, 0.86));
   color: white;
   text-align: center;
   cursor: pointer;
@@ -4603,7 +4755,8 @@ body.course-body::before {
 
 .ep-world-node.unlocked button,
 .ep-world-node.completed button {
-  background: linear-gradient(145deg, rgba(24, 113, 185, 0.82), rgba(77, 43, 151, 0.74));
+  background: linear-gradient(180deg, rgba(38, 69, 164, 0.96), rgba(18, 39, 104, 0.9));
+  box-shadow: 0 0 26px rgba(87, 211, 255, 0.28), 0 20px 34px rgba(0, 0, 0, 0.28);
 }
 
 .ep-world-node.locked button {
@@ -4613,10 +4766,14 @@ body.course-body::before {
 }
 
 .ep-planet {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
 }
 
 .ep-id {
+  margin-top: -20px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #4353c8;
   color: #8fe7ff;
   font-weight: 900;
 }
@@ -4626,31 +4783,91 @@ body.course-body::before {
 }
 
 .ep-world-node small {
-  color: rgba(231, 242, 255, 0.72);
+  color: #ffd764;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .ep-world-node em {
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(95, 226, 160, 0.18);
-  color: #89ffc9;
+  background: linear-gradient(180deg, #48d875, #1f9d4e);
+  color: white;
   font-size: 0.78rem;
   font-style: normal;
   font-weight: 900;
 }
 
 .ep-world-node.locked em {
-  background: rgba(255, 255, 255, 0.11);
-  color: rgba(232, 242, 255, 0.62);
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(232, 242, 255, 0.72);
 }
 
-.ep-reward {
-  margin-top: 10px;
-  color: rgba(235, 246, 255, 0.72);
-  font-size: 0.84rem;
-  font-weight: 800;
-  text-align: center;
+.ep-hover-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  width: max-content;
+  max-width: 220px;
+  padding: 8px 10px;
+  border: 1px solid rgba(139, 226, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(3, 11, 30, 0.86);
+  color: #dff8ff;
+  font-size: 0.74rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: 0.2s ease;
+}
+
+.ep-world-node button:hover .ep-hover-tip,
+.ep-world-node button:focus .ep-hover-tip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.floating-island {
+  position: relative;
+  z-index: 1;
+  width: min(230px, 100%);
+  height: 88px;
+  margin: -38px auto 0;
+  border-radius: 50% 50% 42% 42%;
+  background:
+    radial-gradient(circle at 28% 18%, #8df27b 0 22%, transparent 23%),
+    linear-gradient(180deg, #4fbd47 0 32%, #7b532a 34%, #4a2d1c 78%, transparent 79%);
+  filter: drop-shadow(0 22px 20px rgba(0, 0, 0, 0.32));
+}
+
+.floating-island i {
+  position: absolute;
+  left: 50%;
+  bottom: -38px;
+  width: 92px;
+  height: 52px;
+  border-radius: 0 0 60px 60px;
+  background: linear-gradient(180deg, #5f3c22, #25140e);
+  transform: translateX(-50%);
+  clip-path: polygon(0 0, 100% 0, 68% 100%, 32% 100%);
+}
+
+.map-next-button {
+  position: absolute;
+  z-index: 4;
+  right: 28px;
+  top: 50%;
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5edcff, #806aff);
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 900;
+  box-shadow: 0 0 28px rgba(94, 220, 255, 0.42);
 }
 
 .game-retention-grid {
@@ -4658,6 +4875,242 @@ body.course-body::before {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 22px;
+}
+
+.level-preview-panel,
+.milo-growth-panel {
+  padding: 18px;
+  border: 1px solid rgba(157, 218, 255, 0.25);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(12, 25, 56, 0.9), rgba(33, 19, 70, 0.84));
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.level-preview-panel h2,
+.milo-growth-panel h2 {
+  color: white;
+  font-size: 1.35rem;
+}
+
+.level-preview-panel img {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  margin: 12px 0;
+  object-fit: cover;
+  border: 1px solid rgba(116, 219, 255, 0.2);
+  border-radius: 14px;
+}
+
+.level-preview-panel p {
+  color: rgba(231, 242, 255, 0.75);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.preview-boss-row,
+.preview-rewards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+  color: white;
+  font-weight: 900;
+}
+
+.boss-face {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(81, 210, 255, 0.22);
+}
+
+.milo-growth-body {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.milo-avatar-large {
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(101, 221, 255, 0.28), transparent 68%);
+  font-size: 3.4rem;
+  filter: drop-shadow(0 0 22px rgba(94, 220, 255, 0.45));
+}
+
+.milo-stat-grid {
+  display: grid;
+  gap: 7px;
+  color: rgba(231, 242, 255, 0.78);
+  font-weight: 800;
+}
+
+.milo-stat-grid strong {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.skill-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.skill-slots span {
+  display: grid;
+  min-height: 66px;
+  place-items: center;
+  border: 1px solid rgba(127, 218, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(44, 78, 158, 0.34);
+  color: white;
+  font-weight: 900;
+}
+
+.skill-slots small {
+  font-size: 0.66rem;
+}
+
+.skill-slots .locked {
+  opacity: 0.48;
+}
+
+.level-flow-section {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.flow-card,
+.game-mechanics-panel article {
+  min-height: 172px;
+  padding: 16px;
+  border: 1px solid rgba(157, 218, 255, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(18, 32, 78, 0.88), rgba(49, 25, 88, 0.72));
+  color: white;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+}
+
+.flow-card span,
+.game-mechanics-panel span {
+  color: rgba(238, 247, 255, 0.9);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.flow-image,
+.quiz-options,
+.reward-stage {
+  display: grid;
+  min-height: 118px;
+  margin-top: 12px;
+  place-items: center;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(65, 184, 255, 0.16), rgba(18, 41, 94, 0.52)),
+    url("assets/scenery/mooncity_signal.jpg") center / cover;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.flow-image p {
+  max-width: 86%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #172544;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.quiz-options {
+  background: rgba(8, 20, 48, 0.58);
+  font-size: 0.86rem;
+}
+
+.quiz-options strong {
+  width: 92%;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #29c66f, #65f0b8);
+  color: white;
+}
+
+.quiz-options em {
+  color: #89ffc9;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.reward-stage {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.reward-stage strong {
+  color: #ffd764;
+  font-size: 2rem;
+}
+
+.game-mechanics-panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.game-mechanics-panel article {
+  min-height: 150px;
+}
+
+.game-mechanics-panel h3 {
+  margin: 8px 0 10px;
+  color: white;
+}
+
+.game-mechanics-panel p,
+.game-mechanics-panel em {
+  display: block;
+  color: rgba(231, 242, 255, 0.76);
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.parent-chart {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  height: 58px;
+  margin: 10px 0;
+}
+
+.parent-chart i {
+  width: 13px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #67dcff, #5b67ff);
+}
+
+.parent-chart i:nth-child(1) { height: 24px; }
+.parent-chart i:nth-child(2) { height: 34px; }
+.parent-chart i:nth-child(3) { height: 52px; }
+.parent-chart i:nth-child(4) { height: 38px; }
+.parent-chart i:nth-child(5) { height: 48px; }
+
+.lock-shake {
+  animation: lockShake 0.46s ease both;
 }
 
 .game-retention-grid article {
@@ -4954,6 +5407,21 @@ body.course-body::before {
   }
 }
 
+@keyframes lockShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(7px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+}
+
 @media (max-width: 900px) {
   .ai-game-header,
   .world-hero,
@@ -4978,5 +5446,39 @@ body.course-body::before {
   .ai-challenge-panel form,
   .boss-input-row {
     grid-template-columns: 1fr;
+  }
+
+  .game-dashboard,
+  .level-flow-section,
+  .game-mechanics-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .map-top-hud {
+    position: relative;
+    inset: auto;
+    display: grid;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .world-map-panel {
+    padding: 130px 18px 30px;
+  }
+
+  .map-tools {
+    display: none;
+  }
+
+  .map-sky-title {
+    top: 24px;
+    min-width: min(300px, calc(100% - 32px));
+  }
+
+  .start-island {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 auto 24px;
   }
 }

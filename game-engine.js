@@ -36,6 +36,37 @@
     return entry.replace(/^game\//, "");
   }
 
+  function rewardValue(ep) {
+    return ep.xp || ep.xp_reward || 0;
+  }
+
+  function renderLevelPreview(ep) {
+    const panel = document.querySelector("[data-level-preview]");
+    if (!panel || !ep) return;
+    const locked = ep.status === "locked";
+    panel.innerHTML = `
+      <p class="game-system-label">Level Preview</p>
+      <h2>${ep.id} ${ep.title}</h2>
+      <img src="${ep.image || "../assets/scenery/mooncity_signal.jpg"}" alt="${ep.title} level preview">
+      <p>${ep.lesson_title || ep.theme}：进入 ${ep.title}，用英语、逻辑和 AI 指令完成学习闯关。</p>
+      <div class="preview-boss-row">
+        <span class="boss-face">🤖</span>
+        <strong>Boss: ${ep.boss}</strong>
+      </div>
+      <div class="preview-rewards">
+        <span>💜 XP ${rewardValue(ep)}</span>
+        <span>⚡ Energy +${ep.energy_reward || 50}</span>
+      </div>
+      <button class="ai-game-button primary" type="button" data-enter-selected ${locked ? "disabled" : ""}>${locked ? "Locked" : "Enter Level"}</button>
+    `;
+    const enter = panel.querySelector("[data-enter-selected]");
+    if (enter && !locked) {
+      enter.addEventListener("click", () => {
+        window.location.href = relativeFromGameRoot(ep.entry);
+      });
+    }
+  }
+
   function renderPlayerHud() {
     const hud = document.querySelector("[data-player-hud]");
     if (!hud) return;
@@ -71,26 +102,42 @@
     if (!map) return;
     const progress = loadProgress();
     map.innerHTML = "";
-    data.epWorlds.forEach((ep, index) => {
+    const worlds = data.epWorlds || [];
+    renderLevelPreview(worlds[0]);
+    worlds.forEach((ep, index) => {
       const completed = progress.completed.includes(ep.id);
       const status = completed ? "completed" : ep.status;
       const node = document.createElement("article");
       node.className = `ep-world-node ${status}`;
       node.style.setProperty("--node-index", index);
       node.innerHTML = `
-        <button type="button" ${status === "locked" ? "disabled" : ""} data-ep-entry="${relativeFromGameRoot(ep.entry)}" aria-label="${ep.id} ${ep.title}">
+        <button type="button" ${status === "locked" ? "disabled" : ""} data-ep-index="${index}" data-ep-entry="${relativeFromGameRoot(ep.entry)}" aria-label="${ep.id} ${ep.title}" title="+${rewardValue(ep)} XP · Boss: ${ep.boss}">
           <span class="ep-planet">${status === "locked" ? "🔒" : completed ? "⭐" : "🌍"}</span>
           <span class="ep-id">${ep.id}</span>
-          <strong>${ep.world_title}</strong>
-          <small>${ep.title}</small>
+          <strong>${ep.title}</strong>
+          <small>${completed ? "⭐⭐⭐" : status === "locked" ? "☆☆☆" : "⭐⭐⭐"}</small>
           <em>${status === "locked" ? "Locked" : completed ? "Completed" : "Open"}</em>
+          <span class="ep-hover-tip">+${rewardValue(ep)} XP · Boss: ${ep.boss}</span>
         </button>
-        <div class="ep-reward">+${ep.xp_reward} XP · Boss: ${ep.boss}</div>
+        <div class="floating-island" aria-hidden="true"><i></i></div>
       `;
       map.appendChild(node);
     });
     map.querySelectorAll("[data-ep-entry]").forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        renderLevelPreview(worlds[Number(button.dataset.epIndex)]);
+      });
+      button.addEventListener("focus", () => {
+        renderLevelPreview(worlds[Number(button.dataset.epIndex)]);
+      });
       button.addEventListener("click", () => {
+        const ep = worlds[Number(button.dataset.epIndex)];
+        renderLevelPreview(ep);
+        if (ep.status === "locked") {
+          button.closest(".ep-world-node")?.classList.add("lock-shake");
+          setTimeout(() => button.closest(".ep-world-node")?.classList.remove("lock-shake"), 520);
+          return;
+        }
         window.location.href = button.dataset.epEntry;
       });
     });
