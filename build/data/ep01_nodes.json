@@ -1,0 +1,50 @@
+[
+  {
+    "id": "start",
+    "type": "story",
+    "label": "Start",
+    "title": "Moon Classroom Awakens",
+    "description": "Leta presses the red button. Milo wakes up inside the blue hologram.",
+    "xp": 20
+  },
+  {
+    "id": "stage1",
+    "type": "learning",
+    "label": "Stage 1",
+    "title": "Signal Words",
+    "description": "Match mission words: drone, signal, propeller, oxygen, console.",
+    "xp": 40
+  },
+  {
+    "id": "stage2",
+    "type": "learning",
+    "label": "Stage 2",
+    "title": "Repair Order",
+    "description": "Choose the correct order to repair the drone signal path.",
+    "xp": 50
+  },
+  {
+    "id": "ai_challenge",
+    "type": "ai_challenge",
+    "label": "AI Challenge",
+    "title": "Give Milo an English Command",
+    "description": "Type a clear English instruction to stabilize the moon signal.",
+    "xp": 60
+  },
+  {
+    "id": "boss",
+    "type": "boss",
+    "label": "Boss",
+    "title": "PIX AI Core",
+    "description": "Use language to repair the unstable AI system.",
+    "xp": 100
+  },
+  {
+    "id": "reward",
+    "type": "reward",
+    "label": "Reward",
+    "title": "Moon Signal Badge",
+    "description": "Collect XP, AI Energy, and unlock the next mission route.",
+    "xp": 200
+  }
+]

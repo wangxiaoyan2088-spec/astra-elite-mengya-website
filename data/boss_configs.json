@@ -1,0 +1,17 @@
+[
+  {
+    "ep_id": "EP01",
+    "boss_id": "pix_ai",
+    "name": "PIX AI CORE",
+    "status": "INSTABILITY HIGH",
+    "opening": "SYSTEM ERROR: DRONE PATH LOST",
+    "hp": 100,
+    "correct_keywords": ["drone", "signal", "repair", "oxygen", "propeller", "route", "stable", "console"],
+    "hints": [
+      "Use a clear English command.",
+      "Mention the drone or signal.",
+      "Try: Repair the drone signal route."
+    ],
+    "teaching_mode": "PIX needs a simple command with an action and a target."
+  }
+]

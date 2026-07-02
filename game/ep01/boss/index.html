@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIX AI Boss Battle | EP01</title>
+  <meta name="description" content="EP01 AI Boss Battle：用语言修复 PIX AI Core。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body class="ai-game-body boss-body" data-boss-ep="EP01">
+  <div class="ai-particles" aria-hidden="true"></div>
+  <div class="ai-game-shell">
+    <header class="ai-game-header">
+      <a class="ai-game-brand" href="../index.html" aria-label="返回 EP01">
+        <span>AI</span>
+        <strong>PIX AI CORE</strong>
+      </a>
+      <nav aria-label="Boss navigation">
+        <a href="../index.html">EP01</a>
+        <a href="../../index.html">World Map</a>
+      </nav>
+    </header>
+
+    <main class="boss-battle-page">
+      <section class="boss-core-panel">
+        <div class="boss-orb" aria-hidden="true"></div>
+        <div>
+          <p class="game-system-label">AI Boss Battle</p>
+          <h1>PIX AI CORE</h1>
+          <p class="boss-status">STATUS: <span data-boss-status>INSTABILITY HIGH</span></p>
+          <div class="boss-hp-shell">
+            <div class="boss-hp-bar" data-boss-hp-bar></div>
+          </div>
+          <p class="boss-hp-text">Stability HP: <span data-boss-hp>100</span>/100</p>
+        </div>
+      </section>
+
+      <section class="boss-chat-panel">
+        <div class="boss-chat-window" data-boss-chat></div>
+        <form class="boss-input-row" data-boss-form>
+          <input type="text" name="message" placeholder="Type an English repair command..." autocomplete="off">
+          <button class="ai-game-button primary" type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../../data/game_data.js"></script>
+  <script src="../../../game-engine.js"></script>
+</body>
+</html>

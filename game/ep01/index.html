@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EP01 The Moon Signal | ASTRA ELITE AI Game</title>
+  <meta name="description" content="EP01 The Moon Signal 关卡世界：Story、Learning、AI Challenge、Boss、Reward。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="ai-game-body ep-world-body" data-ep-id="EP01">
+  <div class="ai-particles" aria-hidden="true"></div>
+  <div class="ai-game-shell">
+    <header class="ai-game-header">
+      <a class="ai-game-brand" href="../index.html" aria-label="返回游戏地图">
+        <span>01</span>
+        <strong>EP01 · THE MOON SIGNAL</strong>
+      </a>
+      <nav aria-label="EP navigation">
+        <a href="../index.html">World Map</a>
+        <a href="boss/index.html">Boss Battle</a>
+        <a href="../../index.html">Home</a>
+      </nav>
+    </header>
+
+    <main class="ep-world-page">
+      <section class="ep-stage-hero">
+        <div>
+          <p class="game-system-label">Start → Stage1 → Stage2 → AI Challenge → Boss → Reward</p>
+          <h1>Drone City: 用语言唤醒月球信号</h1>
+          <p>Leta 按下红色按钮，Milo 从蓝色光点里醒来。玩家需要完成英语理解、科学排序和 AI 指令，最后进入 PIX AI Boss Battle。</p>
+          <div class="ep-action-row">
+            <a class="ai-game-button primary" href="boss/index.html">Enter Boss Battle</a>
+            <button class="ai-game-button" type="button" data-award-node>Claim Node XP</button>
+          </div>
+        </div>
+        <div class="ep-visual-card">
+          <img src="../../assets/scenery/mooncity_signal.jpg" alt="Moon City signal scene">
+          <div class="ep-dialogue">Milo: The moon signal is unstable. We need a clear command.</div>
+        </div>
+      </section>
+
+      <section class="ep-node-track" data-ep-nodes></section>
+
+      <section class="ai-challenge-panel">
+        <div>
+          <p class="game-system-label">AI Challenge Node</p>
+          <h2>Write an English command</h2>
+          <p>输入一条清楚的英文指令，帮助 Milo 稳定无人机信号。</p>
+        </div>
+        <form data-ai-command-form>
+          <input type="text" name="command" placeholder="Example: Repair the drone signal route." autocomplete="off">
+          <button class="ai-game-button primary" type="submit">Check Command</button>
+        </form>
+        <p class="ai-feedback" data-ai-command-feedback>等待玩家输入英文指令。</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../data/game_data.js"></script>
+  <script src="../../game-engine.js"></script>
+</body>
+</html>

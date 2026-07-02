@@ -1,0 +1,74 @@
+[
+  {
+    "id": "EP01",
+    "slug": "ep01",
+    "title": "The Moon Signal",
+    "world_title": "Drone City",
+    "status": "unlocked",
+    "xp_reward": 200,
+    "energy_reward": 80,
+    "boss": "PIX AI",
+    "theme": "Moon Base Signal",
+    "entry": "game/ep01/index.html"
+  },
+  {
+    "id": "EP02",
+    "slug": "ep02",
+    "title": "The Lost Drone Signal",
+    "world_title": "Signal Route",
+    "status": "unlocked",
+    "xp_reward": 240,
+    "energy_reward": 90,
+    "boss": "Watcher Drone",
+    "theme": "Drone Navigation",
+    "entry": "game/ep02/index.html"
+  },
+  {
+    "id": "EP03",
+    "slug": "ep03",
+    "title": "The Magic 3D Printer",
+    "world_title": "Maker Valley",
+    "status": "locked",
+    "xp_reward": 260,
+    "energy_reward": 100,
+    "boss": "Printer Core",
+    "theme": "3D Printing",
+    "entry": "game/ep03/index.html"
+  },
+  {
+    "id": "EP04",
+    "slug": "ep04",
+    "title": "The Mind Link System",
+    "world_title": "Memory Bridge",
+    "status": "locked",
+    "xp_reward": 280,
+    "energy_reward": 110,
+    "boss": "Mind Link AI",
+    "theme": "Human-AI Thinking",
+    "entry": "game/ep04/index.html"
+  },
+  {
+    "id": "EP05",
+    "slug": "ep05",
+    "title": "The AI Robot Pet",
+    "world_title": "Robot Garden",
+    "status": "locked",
+    "xp_reward": 300,
+    "energy_reward": 120,
+    "boss": "Pet Emotion Core",
+    "theme": "Robotics and Emotion",
+    "entry": "game/ep05/index.html"
+  },
+  {
+    "id": "EP06",
+    "slug": "ep06",
+    "title": "The Hologram Classroom",
+    "world_title": "Hologram School",
+    "status": "locked",
+    "xp_reward": 320,
+    "energy_reward": 130,
+    "boss": "Holo Teacher",
+    "theme": "Spatial Learning",
+    "entry": "game/ep06/index.html"
+  }
+]
